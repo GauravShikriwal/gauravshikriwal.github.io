@@ -3,31 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaurav Shikriwal - Portfolio</title>
+    <title>Gaurav Shikriwal - Data Scientist</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
         <h1>Gaurav Shikriwal</h1>
-        <p>Data Science Engineer | Machine Learning | AI</p>
+        <p id="typing-text">Data Science Engineer | AI & ML Specialist</p>
+        <button id="theme-toggle">🌙 Dark Mode</button>
     </header>
-    
-    <section>
+
+    <section id="about">
         <h2>About Me</h2>
-        <p>I specialize in Machine Learning, Data Science, and AI-driven solutions.</p>
+        <p>I specialize in Machine Learning, AI, and Data Science. With experience in fraud detection, leakage analytics, and power disaggregation, I create ML solutions that optimize efficiency and accuracy.</p>
     </section>
 
-    <section>
+    <section id="projects">
         <h2>Projects</h2>
-        <ul>
-            <li><strong>Leakage Detection:</strong> Automated detection, saving 63M gallons of water/year.</li>
-            <li><strong>Fraud Detection:</strong> Achieved 100% recall for fraudulent cases.</li>
-            <li><strong>Power Disaggregation:</strong> Built ML models for 72,000+ users.</li>
-        </ul>
+        <div class="project">
+            <img src="images/leakage_detection.jpg" alt="Leakage Detection">
+            <h3>Leakage Detection System</h3>
+            <p>Developed an ML model that saved 63M gallons of water annually, reducing false positives by 40%.</p>
+        </div>
+        <div class="project">
+            <img src="images/fraud_detection.jpg" alt="Fraud Detection">
+            <h3>Fraud Detection Model</h3>
+            <p>Built a fraud detection model with 100% recall for true fraud cases using SMOTE and FBKats.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:gauravshikriwal009@gmail.com">gauravshikriwal009@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/gaurav-shikriwal" target="_blank">linkedin.com/in/gaurav-shikriwal</a></p>
     </section>
 
     <footer>
-        <p>Contact: gauravshikriwal009@gmail.com | <a href="https://linkedin.com/in/gaurav-shikriwal">LinkedIn</a></p>
+        <p>© 2025 Gaurav Shikriwal | Built with ❤️</p>
     </footer>
 </body>
 </html>
