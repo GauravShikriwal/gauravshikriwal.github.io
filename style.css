@@ -4,6 +4,8 @@ body {
     margin: 0;
     padding: 0;
     background: #f4f4f4;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
 }
 
 header {
@@ -16,9 +18,44 @@ h1, h2 {
     color: #444;
 }
 
+.project {
+    display: inline-block;
+    width: 300px;
+    margin: 20px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.project img {
+    width: 100%;
+    border-radius: 5px;
+}
+
 footer {
     margin-top: 20px;
     padding: 10px;
     background: #333;
     color: white;
+}
+
+#theme-toggle {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.dark-mode {
+    background: #222;
+    color: #ddd;
+}
+
+.dark-mode header {
+    background: #111;
+}
+
+.dark-mode .project {
+    background: #333;
 }
