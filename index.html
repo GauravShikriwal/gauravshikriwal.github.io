@@ -3,44 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaurav Shikriwal - Data Scientist</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <title>Resume | Gaurav Shikriwal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf7;
+            color: #1f2937;
+        }
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            background-color: #3b82f6;
+            color: #ffffff;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .project-card-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .project-card.open .project-card-details {
+            max-height: 1000px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.75rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 9999px;
+            background-color: #3b82f6;
+            border: 3px solid #fdfbf7;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 500px;
+            }
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Gaurav Shikriwal</h1>
-        <p id="typing-text">Data Science Engineer | AI & ML Specialist</p>
-        <button id="theme-toggle">🌙 Dark Mode</button>
-    </header>
+<body class="antialiased">
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I specialize in Machine Learning, AI, and Data Science. With experience in fraud detection, leakage analytics, and power disaggregation, I create ML solutions that optimize efficiency and accuracy.</p>
-    </section>
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <img src="images/leakage_detection.jpg" alt="Leakage Detection">
-            <h3>Leakage Detection System</h3>
-            <p>Developed an ML model that saved 63M gallons of water annually, reducing false positives by 40%.</p>
-        </div>
-        <div class="project">
-            <img src="images/fraud_detection.jpg" alt="Fraud Detection">
-            <h3>Fraud Detection Model</h3>
-            <p>Built a fraud detection model with 100% recall for true fraud cases using SMOTE and FBKats.</p>
-        </div>
-    </section>
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Gaurav Shikriwal</h1>
+            <p class="text-xl md:text-2xl text-gray-600 mt-2">Data Science & AI Engineer</p>
+            <div class="flex justify-center items-center space-x-4 mt-4 text-sm md:text-base">
+                <a href="mailto:gauravshikriwal009@gmail.com" class="text-blue-600 hover:underline">gauravshikriwal009@gmail.com</a>
+                <span class="text-gray-400">|</span>
+                <a href="https://github.com/GauravShikriwal" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                <span class="text-gray-400">|</span>
+                <a href="#" class="text-blue-600 hover:underline">LinkedIn</a>
+            </div>
+        </header>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:gauravshikriwal009@gmail.com">gauravshikriwal009@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/gaurav-shikriwal" target="_blank">linkedin.com/in/gaurav-shikriwal</a></p>
-    </section>
+        <!-- Navigation Tabs -->
+        <nav class="flex justify-center flex-wrap gap-2 md:gap-4 mb-8">
+            <button class="tab-btn active py-2 px-4 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" onclick="showTab('overview')">Overview</button>
+            <button class="tab-btn py-2 px-4 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" onclick="showTab('experience')">Experience</button>
+            <button class="tab-btn py-2 px-4 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" onclick="showTab('projects')">Projects</button>
+            <button class="tab-btn py-2 px-4 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300" onclick="showTab('skills')">Skills</button>
+        </nav>
 
-    <footer>
-        <p>© 2025 Gaurav Shikriwal | Built with ❤️</p>
-    </footer>
+        <main id="main-content">
+
+            <!-- Overview Section -->
+            <section id="overview-content" class="content-section active bg-white p-6 md:p-8 rounded-xl shadow-sm">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800">Professional Profile</h2>
+                <p class="text-gray-600 leading-relaxed">
+                    A results-driven Data Science Engineer with proven experience in developing and deploying machine learning models to solve complex business challenges. 
+                    Specialized in automating data-driven systems, fraud detection, and applying modern AI architectures such as Retrieval-Augmented Generation (RAG). 
+                    I aim to further deepen my expertise in an advanced academic environment and contribute to cutting-edge AI research.
+                </p>
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
+                    <div><strong class="font-medium text-gray-900">Nationality:</strong> Indian</div>
+                    <div><strong class="font-medium text-gray-900">Phone:</strong> +91 8901061148</div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience-content" class="content-section">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm">
+                    <h2 class="text-2xl font-bold mb-8 text-gray-800 text-center">Work Experience & Education</h2>
+                    <div class="relative pl-10 border-l-2 border-gray-200">
+                        <div class="timeline-item mb-12">
+                            <p class="font-bold text-blue-600">May 2023 – Present</p>
+                            <h3 class="text-xl font-semibold mt-1">Data Science Engineer</h3>
+                            <p class="text-md text-gray-600 mb-2">sew.ai</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Automated a Python-based leakage detection system for ~6300 customers.</li>
+                                <li>Developed and trained residential disaggregation models for Tata.</li>
+                                <li>Designed and deployed a fraud detection model with 78% accuracy.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item mb-12">
+                            <p class="font-bold text-blue-600">Jan 2023 – Jun 2023</p>
+                            <h3 class="text-xl font-semibold mt-1">Software Developer Intern</h3>
+                            <p class="text-md text-gray-600 mb-2">Samsung</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Built a neural network classifier for smartwatch activity recognition (95% accuracy).</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
+                            <p class="font-bold text-blue-600">Aug 2019 – Aug 2023</p>
+                            <h3 class="text-xl font-semibold mt-1">Bachelor of Technology in Computer Science</h3>
+                            <p class="text-md text-gray-600 mb-2">J.C. Bose University of Science & Technology, YMCA</p>
+                            <p class="text-gray-600">GPA: 8.5 / 10.0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects-content" class="content-section">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">Projects</h2>
+                    <p class="text-gray-600 mb-6">Click a project to view details. These showcase my ability to deliver end-to-end solutions from concept to scalable deployment.</p>
+                    <div id="projects-container" class="space-y-4"></div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills-content" class="content-section">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">Technical Skills</h2>
+                    <p class="text-gray-600 mb-6">This chart shows my core skills categorized by area, based on my practical experience and depth of knowledge.</p>
+                    <div class="chart-container">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const projectsData = [
+            {
+                title: 'Outage Diagnosis Assistant using RAG',
+                details: [
+                    'Built a Retrieval-Augmented Generation (RAG) system with LLaMA 3.2 and Qdrant for outage queries.',
+                    'Implemented prompt engineering, intent classification, and real-time context injection with LangChain.',
+                    'Deployed a scalable backend with Docker Compose, LiteLLM, and GPU inference support.'
+                ]
+            },
+            {
+                title: 'Leakage Analytics',
+                details: [
+                    'Increased detection accuracy by 75% and reduced false positives by 40%.',
+                    'Integrated advanced ML techniques and time series libraries like FBProphet and Kats.',
+                    'Optimized Python-based data pipelines for Azure deployment.'
+                ]
+            },
+            {
+                title: 'Power Fraud Detection',
+                details: [
+                    'Addressed class imbalance using SMOTE and engineered daily-level features with Pandas/NumPy.',
+                    'Fine-tuned a CatBoost model for imbalanced time-series classification.',
+                    'Used GridSearchCV and custom metrics for robust evaluation.'
+                ]
+            }
+        ];
+
+        const skillsData = {
+            labels: ['Python', 'SQL', 'Java/C++', 'Docker', 'Azure', 'RAG/LLMs', 'ML/Time Series'],
+            datasets: [{
+                label: 'Skill Level',
+                data: [95, 85, 70, 80, 75, 90, 90],
+                backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                borderColor: 'rgba(59, 130, 246, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        function showTab(tabName) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(tabName + '-content').classList.add('active');
+
+            document.querySelectorAll('.tab-btn').forEach(button => {
+                button.classList.remove('active');
+                if (button.getAttribute('onclick').includes(tabName)) {
+                    button.classList.add('active');
+                }
+            });
+        }
+
+        function createProjectCards() {
+            const container = document.getElementById('projects-container');
+            projectsData.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card border border-gray-200 rounded-lg overflow-hidden';
+                
+                const header = document.createElement('div');
+                header.className = 'p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 flex justify-between items-center';
+                header.innerHTML = `<h3 class="font-semibold text-lg text-gray-800">${project.title}</h3><span class="text-blue-500 transform transition-transform duration-300">&#9662;</span>`;
+
+                const detailsContainer = document.createElement('div');
+                detailsContainer.className = 'project-card-details';
+                const detailsList = document.createElement('ul');
+                detailsList.className = 'p-4 pt-0 list-disc list-inside text-gray-600 space-y-1 bg-white';
+                project.details.forEach(detail => {
+                    const li = document.createElement('li');
+                    li.textContent = detail;
+                    detailsList.appendChild(li);
+                });
+                detailsContainer.appendChild(detailsList);
+
+                card.appendChild(header);
+                card.appendChild(detailsContainer);
+                container.appendChild(card);
+
+                header.addEventListener('click', () => {
+                    card.classList.toggle('open');
+                    const arrow = header.querySelector('span');
+                    arrow.style.transform = card.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+                });
+            });
+        }
+
+        function createSkillsChart() {
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: skillsData,
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: '#e5e7eb' }
+                        },
+                        y: {
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: context => `${context.dataset.label}: ${context.raw}%`
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        window.onload = function() {
+            createProjectCards();
+            createSkillsChart();
+            showTab('overview');
+        };
+    </script>
+
 </body>
 </html>
